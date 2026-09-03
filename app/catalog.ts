@@ -247,6 +247,22 @@ export const catalog: Record<Side, JerseyStyle[]> = {
       { name: "淺藍白", image: "/products/jixing-double-colors/09.jpg", secondaryImage: "/products/jixing-double-colors/10.jpg" },
       { name: "紅白", image: "/products/jixing-double-colors/11.jpg", secondaryImage: "/products/jixing-double-colors/12.jpg" },
     ] },
+    { name: "地平線", thumbnail: "/products/dipingxian-double-colors/01.jpg", variants: [
+      { name: "靛白", image: "/products/dipingxian-double-colors/01.jpg", secondaryImage: "/products/dipingxian-double-colors/02.jpg" },
+      { name: "紫白", image: "/products/dipingxian-double-colors/03.jpg", secondaryImage: "/products/dipingxian-double-colors/04.jpg" },
+      { name: "紅白", image: "/products/dipingxian-double-colors/05.jpg", secondaryImage: "/products/dipingxian-double-colors/06.jpg" },
+      { name: "黃白", image: "/products/dipingxian-double-colors/07.jpg", secondaryImage: "/products/dipingxian-double-colors/08.jpg" },
+      { name: "綠白", image: "/products/dipingxian-double-colors/09.jpg", secondaryImage: "/products/dipingxian-double-colors/10.jpg" },
+      { name: "淺藍白", image: "/products/dipingxian-double-colors/11.jpg", secondaryImage: "/products/dipingxian-double-colors/12.jpg" },
+    ] },
+    { name: "脈衝", thumbnail: "/products/maichong-double-colors/01.jpg", variants: [
+      { name: "黑金", image: "/products/maichong-double-colors/01.jpg", secondaryImage: "/products/maichong-double-colors/02.jpg" },
+      { name: "藍紅", image: "/products/maichong-double-colors/03.jpg", secondaryImage: "/products/maichong-double-colors/04.jpg" },
+      { name: "藍粉", image: "/products/maichong-double-colors/05.jpg", secondaryImage: "/products/maichong-double-colors/06.jpg" },
+      { name: "酒紅白", image: "/products/maichong-double-colors/07.jpg", secondaryImage: "/products/maichong-double-colors/08.jpg" },
+      { name: "紅黃", image: "/products/maichong-double-colors/09.jpg", secondaryImage: "/products/maichong-double-colors/10.jpg" },
+      { name: "綠白", image: "/products/maichong-double-colors/11.jpg", secondaryImage: "/products/maichong-double-colors/12.jpg" },
+    ] },
   ],
 };
 
