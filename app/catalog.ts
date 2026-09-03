@@ -231,6 +231,22 @@ export const catalog: Record<Side, JerseyStyle[]> = {
       { name: "紫", image: "/products/lengxian-double-colors/09.jpg", secondaryImage: "/products/lengxian-double-colors/10.jpg" },
       { name: "綠", image: "/products/lengxian-double-colors/11.jpg", secondaryImage: "/products/lengxian-double-colors/12.jpg" },
     ] },
+    { name: "閃電", thumbnail: "/products/shandian-double-colors/01.jpg", variants: [
+      { name: "靛白", image: "/products/shandian-double-colors/01.jpg", secondaryImage: "/products/shandian-double-colors/02.jpg" },
+      { name: "紅黑", image: "/products/shandian-double-colors/03.jpg", secondaryImage: "/products/shandian-double-colors/04.jpg" },
+      { name: "黑金", image: "/products/shandian-double-colors/05.jpg", secondaryImage: "/products/shandian-double-colors/06.jpg" },
+      { name: "紫白", image: "/products/shandian-double-colors/07.jpg", secondaryImage: "/products/shandian-double-colors/08.jpg" },
+      { name: "紅白", image: "/products/shandian-double-colors/09.jpg", secondaryImage: "/products/shandian-double-colors/10.jpg" },
+      { name: "綠白", image: "/products/shandian-double-colors/11.jpg", secondaryImage: "/products/shandian-double-colors/12.jpg" },
+    ] },
+    { name: "極星", thumbnail: "/products/jixing-double-colors/01.jpg", variants: [
+      { name: "黑白", image: "/products/jixing-double-colors/01.jpg", secondaryImage: "/products/jixing-double-colors/02.jpg" },
+      { name: "黃白", image: "/products/jixing-double-colors/03.jpg", secondaryImage: "/products/jixing-double-colors/04.jpg" },
+      { name: "藍白", image: "/products/jixing-double-colors/05.jpg", secondaryImage: "/products/jixing-double-colors/06.jpg" },
+      { name: "紫白", image: "/products/jixing-double-colors/07.jpg", secondaryImage: "/products/jixing-double-colors/08.jpg" },
+      { name: "淺藍白", image: "/products/jixing-double-colors/09.jpg", secondaryImage: "/products/jixing-double-colors/10.jpg" },
+      { name: "紅白", image: "/products/jixing-double-colors/11.jpg", secondaryImage: "/products/jixing-double-colors/12.jpg" },
+    ] },
   ],
 };
 
