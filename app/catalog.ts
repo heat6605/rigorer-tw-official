@@ -151,6 +151,22 @@ export const catalog: Record<Side, JerseyStyle[]> = {
       { name: "紅黑", image: "/products/xianfeng-double-colors/red-black-top.jpg", secondaryImage: "/products/xianfeng-double-colors/red-black-shorts.jpg" },
       { name: "綠黑", image: "/products/xianfeng-double-colors/green-black-top.jpg", secondaryImage: "/products/xianfeng-double-colors/green-black-shorts.jpg" },
     ] },
+    { name: "經典", thumbnail: "/products/jingdian-double-colors/01.jpg", variants: [
+      { name: "米白", image: "/products/jingdian-double-colors/01.jpg", secondaryImage: "/products/jingdian-double-colors/02.jpg" },
+      { name: "藍白", image: "/products/jingdian-double-colors/03.jpg", secondaryImage: "/products/jingdian-double-colors/04.jpg" },
+      { name: "綠白", image: "/products/jingdian-double-colors/05.jpg", secondaryImage: "/products/jingdian-double-colors/06.jpg" },
+      { name: "紫白", image: "/products/jingdian-double-colors/07.jpg", secondaryImage: "/products/jingdian-double-colors/08.jpg" },
+      { name: "靛白", image: "/products/jingdian-double-colors/09.jpg", secondaryImage: "/products/jingdian-double-colors/10.jpg" },
+      { name: "紅白", image: "/products/jingdian-double-colors/11.jpg", secondaryImage: "/products/jingdian-double-colors/12.jpg" },
+    ] },
+    { name: "電光", thumbnail: "/products/dianguang-double-colors/01.jpg", variants: [
+      { name: "黑白", image: "/products/dianguang-double-colors/01.jpg", secondaryImage: "/products/dianguang-double-colors/02.jpg" },
+      { name: "紫白", image: "/products/dianguang-double-colors/03.jpg", secondaryImage: "/products/dianguang-double-colors/04.jpg" },
+      { name: "紅白", image: "/products/dianguang-double-colors/05.jpg", secondaryImage: "/products/dianguang-double-colors/06.jpg" },
+      { name: "灰白", image: "/products/dianguang-double-colors/07.jpg", secondaryImage: "/products/dianguang-double-colors/08.jpg" },
+      { name: "靛白", image: "/products/dianguang-double-colors/09.jpg", secondaryImage: "/products/dianguang-double-colors/10.jpg" },
+      { name: "藍白", image: "/products/dianguang-double-colors/11.jpg", secondaryImage: "/products/dianguang-double-colors/12.jpg" },
+    ] },
   ],
 };
 
