@@ -382,7 +382,7 @@ button:focus-visible,a:focus-visible { outline:3px solid rgba(185,152,85,.45); o
 .font-heading { padding:30px 0 20px; }
 .font-heading span,.preview-label { color:var(--gold); font:800 9px/1 Arial; letter-spacing:.17em; }
 .font-heading h2 { margin:9px 0 0; font-size:28px; letter-spacing:-.04em; }
-.font-category-tabs { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:14px; padding:5px; border-radius:10px; background:#f1f1ef; }
+.font-category-tabs { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; margin-bottom:14px; padding:5px; border-radius:10px; background:#f1f1ef; }
 .font-category-tabs button { display:flex; align-items:center; justify-content:center; gap:9px; padding:12px; border:0; border-radius:7px; background:transparent; color:#777; font-size:12px; font-weight:850; cursor:pointer; }
 .font-category-tabs button.active { background:#111; color:#fff; box-shadow:0 3px 12px rgba(0,0,0,.14); }
 .font-category-tabs small { display:grid; min-width:22px; height:22px; place-items:center; border-radius:999px; background:rgba(185,152,85,.2); color:var(--gold); font-size:9px; }

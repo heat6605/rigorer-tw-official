@@ -3,9 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import { SiteFooter, SiteHeader } from "../components/SiteHeader";
 
-type FontCategory = "english" | "number" | "chinese";
+type FontCategory = "english" | "chinese";
 type FontOption = { id:string; name:string; en:string; family:string; file:string; sample:string; category:FontCategory };
-type SelectedFontIds = Record<FontCategory, string>;
 
 const englishFontNames: Record<number, string> = {
   1:"Athletic", 2:"Impact", 3:"Brush Script", 4:"AR Destine", 5:"Bolt Bold", 6:"Raider Crusader", 7:"Ninja", 8:"Airbus Special", 9:"Kimberley", 10:"Hornets Buzz City",
@@ -17,36 +16,31 @@ const englishFontNames: Record<number, string> = {
 const englishNumbers = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,20,21,22,23,24,25,26,27,28,29,30,31,32,33,35,36,37,38,39,40,41,42,43,44,47,48];
 const chineseNumbers = [1,3,4,5,6,7,8];
 const fonts: FontOption[] = [
-  ...englishNumbers.map((fontNumber) => ({ id:`font-en-${fontNumber}`, name:`英文字體 ${String(fontNumber).padStart(2,"0")}`, en:englishFontNames[fontNumber], family:`DVFont${fontNumber}`, file:`/fonts/font-${fontNumber}.woff2`, sample:"RIGORER", category:"english" as const })),
-  ...englishNumbers.map((fontNumber) => ({ id:`font-num-${fontNumber}`, name:`數字字體 ${String(fontNumber).padStart(2,"0")}`, en:englishFontNames[fontNumber], family:`DVFont${fontNumber}`, file:`/fonts/font-${fontNumber}.woff2`, sample:"24", category:"number" as const })),
-  ...chineseNumbers.map((fontNumber) => ({ id:`font-zh-${fontNumber}`, name:`中文字體 ${String(fontNumber).padStart(2,"0")}`, en:`CHINESE ${String(fontNumber).padStart(2,"0")}`, family:`DVChinese${fontNumber}`, file:`/fonts/font-zh-${fontNumber}.woff2`, sample:"準者", category:"chinese" as const })),
+  ...englishNumbers.map((fontNumber) => ({ id:`font-en-${fontNumber}`, name:`英文＆數字字體 ${String(fontNumber).padStart(2,"0")}`, en:englishFontNames[fontNumber], family:`DVFont${fontNumber}`, file:`/fonts/font-${fontNumber}.woff2`, sample:"RIGORER 24", category:"english" as const })),
+  ...chineseNumbers.map((fontNumber) => ({ id:`font-zh-${fontNumber}`, name:`中文＆數字字體 ${String(fontNumber).padStart(2,"0")}`, en:`CHINESE ${String(fontNumber).padStart(2,"0")}`, family:`DVChinese${fontNumber}`, file:`/fonts/font-zh-${fontNumber}.woff2`, sample:"準者 24", category:"chinese" as const })),
 ];
 const fontFaceCss = [
   ...englishNumbers.map((fontNumber) => `@font-face{font-family:'DVFont${fontNumber}';src:url('/fonts/font-${fontNumber}.woff2') format('woff2');font-display:swap;font-weight:400;}`),
   ...chineseNumbers.map((fontNumber) => `@font-face{font-family:'DVChinese${fontNumber}';src:url('/fonts/font-zh-${fontNumber}.woff2') format('woff2');font-display:swap;font-weight:400;}`),
 ].join("\n");
 const fontsPerPage = 8;
-const categoryLabels: Record<FontCategory, string> = { english:"英文字體", number:"數字字體", chinese:"中文字體" };
+const categoryLabels: Record<FontCategory, string> = { english:"英文＆數字字體", chinese:"中文＆數字字體" };
 
 type StoredSelection = { side?:string; styleName?:string; code?:string; variantName?:string; image?:string };
 
 export default function FontsPage() {
-  const [category, setCategory] = useState<FontCategory>("english");
+  const [category, setCategory] = useState<FontCategory>("chinese");
   const [fontPage, setFontPage] = useState(0);
   const [playerName, setPlayerName] = useState("");
   const [number, setNumber] = useState("24");
-  const [selectedFontIds, setSelectedFontIds] = useState<SelectedFontIds>({ english:"", number:"", chinese:"" });
+  const [selectedFontId, setSelectedFontId] = useState("");
   const [selection, setSelection] = useState<StoredSelection | null>(null);
   const [previewFit, setPreviewFit] = useState({ nameSize:56, nameOffset:0, numberSize:125, numberOffset:0 });
   const [completionWarning, setCompletionWarning] = useState("");
   const previewTypeRef = useRef<HTMLDivElement>(null);
   const visibleFonts = fonts.filter((font) => font.category === category);
-  const activeFont = fonts.find((font) => font.id === selectedFontIds[category]) ?? visibleFonts[0];
-  const nameFontCategory: FontCategory = /[\u3400-\u9fff]/.test(playerName) ? "chinese" : "english";
-  const nameFont = fonts.find((font) => font.id === selectedFontIds[nameFontCategory]) ?? fonts.find((font) => font.category === nameFontCategory)!;
-  const numberFont = fonts.find((font) => font.id === selectedFontIds.number) ?? fonts.find((font) => font.category === "number")!;
-  const allFontsChosen = Boolean(selectedFontIds.english && selectedFontIds.number && selectedFontIds.chinese);
-  const selectedCount = Object.values(selectedFontIds).filter(Boolean).length;
+  const selectedFont = fonts.find((font) => font.id === selectedFontId);
+  const previewFont = selectedFont ?? visibleFonts[0];
   const pageCount = Math.ceil(visibleFonts.length / fontsPerPage);
   const pagedFonts = visibleFonts.slice(fontPage * fontsPerPage, (fontPage + 1) * fontsPerPage);
 
@@ -56,8 +50,11 @@ export default function FontsPage() {
       const storedFont = JSON.parse(localStorage.getItem("rigorerFontSelection") ?? "null");
       if (storedFont?.teamName) setPlayerName(storedFont.teamName);
       if (storedFont?.number) setNumber(storedFont.number);
-      const restored = { english:storedFont?.englishFontId ?? "", number:storedFont?.numberFontId ?? "", chinese:storedFont?.chineseFontId ?? "" };
-      if (Object.values(restored).every((id) => !id || fonts.some((font) => font.id === id))) setSelectedFontIds(restored);
+      const restored = storedFont?.fontId ?? storedFont?.englishFontId ?? storedFont?.chineseFontId ?? "";
+      if (fonts.some((font) => font.id === restored)) {
+        setSelectedFontId(restored);
+        setCategory(fonts.find((font) => font.id === restored)!.category);
+      }
     } catch { setSelection(null); }
   }, []);
 
@@ -73,9 +70,9 @@ export default function FontsPage() {
       const displayNumber = number || "00";
       await Promise.all([
         document.fonts.load(`400 ${nameBaseSize}px "DVFont1"`, "RIGORER"),
-        document.fonts.load(`400 ${nameBaseSize}px "${nameFont.family}"`, displayName),
+        document.fonts.load(`400 ${nameBaseSize}px "${previewFont.family}"`, displayName),
         document.fonts.load(`400 ${numberBaseSize}px "DVFont1"`, "24"),
-        document.fonts.load(`400 ${numberBaseSize}px "${numberFont.family}"`, displayNumber),
+        document.fonts.load(`400 ${numberBaseSize}px "${previewFont.family}"`, displayNumber),
       ]);
       if (cancelled) return;
       const canvas = document.createElement("canvas");
@@ -97,14 +94,14 @@ export default function FontsPage() {
         const offset = (current.advance - current.right + current.left) * scale / 2;
         return { size:Math.round(size * 10) / 10, offset:Math.round(offset * 10) / 10 };
       };
-      const fittedName = fitToReference("RIGORER", displayName, nameBaseSize, nameFont.family);
-      const fittedNumber = fitToReference("24", displayNumber, numberBaseSize, numberFont.family);
+      const fittedName = fitToReference("RIGORER", displayName, nameBaseSize, previewFont.family);
+      const fittedNumber = fitToReference("24", displayNumber, numberBaseSize, previewFont.family);
       setPreviewFit({ nameSize:fittedName.size, nameOffset:fittedName.offset, numberSize:fittedNumber.size, numberOffset:fittedNumber.offset });
     };
     fitPreviewText();
     window.addEventListener("resize", fitPreviewText);
     return () => { cancelled = true; window.removeEventListener("resize", fitPreviewText); };
-  }, [nameFont.family, numberFont.family, playerName, number]);
+  }, [previewFont.family, playerName, number]);
 
   const changeCategory = (nextCategory: FontCategory) => {
     setCategory(nextCategory);
@@ -113,28 +110,23 @@ export default function FontsPage() {
 
   const chooseFont = (font: FontOption) => {
     if (!playerName.trim()) return;
-    setSelectedFontIds((current) => ({ ...current, [font.category]:font.id }));
+    setSelectedFontId(font.id);
     setCompletionWarning("");
   };
 
   const goToOrderSummary = () => {
     if (!playerName.trim()) {
-      setCompletionWarning("請先填寫隊伍名稱，並完成英文字體、數字字體與中文字體三項選擇。");
+      setCompletionWarning("請先填寫隊伍名稱，並選擇一款中文或英文字體。");
       return;
     }
-    if (!allFontsChosen) {
-      setCompletionWarning("請先完成英文字體、數字字體與中文字體三項選擇，再進入下一步。");
+    if (!selectedFont) {
+      setCompletionWarning("中文＆數字字體或英文＆數字字體擇一，挑選一款後即可進入下一步。");
       return;
     }
     setCompletionWarning("");
-    const englishFont = fonts.find((font) => font.id === selectedFontIds.english)!;
-    const selectedNumberFont = fonts.find((font) => font.id === selectedFontIds.number)!;
-    const chineseFont = fonts.find((font) => font.id === selectedFontIds.chinese)!;
     try { localStorage.setItem("rigorerFontSelection", JSON.stringify({
       teamName:playerName.trim(), number,
-      englishFontId:englishFont.id, englishFontName:englishFont.name,
-      numberFontId:selectedNumberFont.id, numberFontName:selectedNumberFont.name,
-      chineseFontId:chineseFont.id, chineseFontName:chineseFont.name,
+      fontId:selectedFont.id, fontName:selectedFont.name, fontCategory:selectedFont.category,
     })); }
     catch { /* device-local selection is optional */ }
     window.location.href = "/order-summary";
@@ -147,16 +139,15 @@ export default function FontsPage() {
       <div className="font-layout">
         <div className="font-controls">
           <div className="input-row"><label>隊伍名稱 <b className="required-mark">必填</b><input value={playerName} maxLength={12} onChange={(event) => setPlayerName(event.target.value.toUpperCase())} placeholder="請輸入隊伍名稱" required /></label><label>號碼<input value={number} maxLength={2} inputMode="numeric" onChange={(event) => setNumber(event.target.value.replace(/\D/g,""))} placeholder="23" /></label></div>
-          {!playerName.trim() && <p className="font-name-required">請先填寫隊伍名稱，再分別選擇英文、數字與中文字體。</p>}
+          {!playerName.trim() && <p className="font-name-required">請先填寫隊伍名稱，再從中文或英文字體中擇一挑選。</p>}
           <div className="font-heading"><span>FONT COLLECTION</span><h2>挑選字體</h2></div>
           <div className="font-category-tabs" role="tablist" aria-label="字體分類">
-            <button className={category === "english" ? "active" : ""} type="button" onClick={() => changeCategory("english")}>英文字體 <small>{selectedFontIds.english ? "✓" : "44"}</small></button>
-            <button className={category === "number" ? "active" : ""} type="button" onClick={() => changeCategory("number")}>數字字體 <small>{selectedFontIds.number ? "✓" : "44"}</small></button>
-            <button className={category === "chinese" ? "active" : ""} type="button" onClick={() => changeCategory("chinese")}>中文字體 <small>{selectedFontIds.chinese ? "✓" : "7"}</small></button>
+            <button className={category === "chinese" ? "active" : ""} type="button" onClick={() => changeCategory("chinese")}>中文＆數字字體 <small>{selectedFont?.category === "chinese" ? "✓" : "7"}</small></button>
+            <button className={category === "english" ? "active" : ""} type="button" onClick={() => changeCategory("english")}>英文＆數字字體 <small>{selectedFont?.category === "english" ? "✓" : "44"}</small></button>
           </div>
-          <div className="font-page-status"><span>{categoryLabels[category]}・已選 {selectedCount}/3</span><strong>第 {fontPage + 1} 頁，共 {pageCount} 頁</strong></div>
-          <div className="font-grid">{pagedFonts.map((font) => <button className={`font-card ${selectedFontIds[category] === font.id ? "selected" : ""}`} type="button" key={font.id} disabled={!playerName.trim()} onClick={() => chooseFont(font)}>
-            <span className="font-sample" style={{ fontFamily:font.family }}>{font.sample}</span><span className="font-meta"><small>{font.en}</small><strong>{font.name}</strong><i>{selectedFontIds[category] === font.id ? "✓" : "+"}</i></span>
+          <div className="font-page-status"><span>{categoryLabels[category]}・擇一選擇</span><strong>第 {fontPage + 1} 頁，共 {pageCount} 頁</strong></div>
+          <div className="font-grid">{pagedFonts.map((font) => <button className={`font-card ${selectedFontId === font.id ? "selected" : ""}`} type="button" key={font.id} disabled={!playerName.trim()} onClick={() => chooseFont(font)}>
+            <span className="font-sample" style={{ fontFamily:font.family }}>{font.sample}</span><span className="font-meta"><small>{font.en}</small><strong>{font.name}</strong><i>{selectedFontId === font.id ? "✓" : "+"}</i></span>
           </button>)}</div>
           <nav className="font-pagination" aria-label="字體分頁">
             <button type="button" className="font-page-arrow" disabled={fontPage === 0} onClick={() => setFontPage((page) => page - 1)}>← 上一頁</button>
@@ -169,11 +160,9 @@ export default function FontsPage() {
 
         <aside className="jersey-preview-panel">
           <div className="preview-title-row"><span className="preview-label">LIVE PREVIEW</span></div>
-          <div className="jersey-preview-art" aria-live="polite"><img src="/jersey-font-preview.png" alt="準者白色籃球衣字體展示" /><div className="preview-type" ref={previewTypeRef} key={`${selectedFontIds.english}-${selectedFontIds.number}-${selectedFontIds.chinese}`}><span className="preview-name" style={{ fontFamily:nameFont.family, fontSize:previewFit.nameSize, left:`calc(50% + ${previewFit.nameOffset}px)` }}>{playerName || "TEAM NAME"}</span><strong className="preview-number" style={{ fontFamily:numberFont.family, fontSize:previewFit.numberSize, left:`calc(50% + ${previewFit.numberOffset}px)` }}>{number || "00"}</strong></div></div>
+          <div className="jersey-preview-art" aria-live="polite"><img src="/jersey-font-preview.png" alt="準者白色籃球衣字體展示" /><div className="preview-type" ref={previewTypeRef} key={selectedFontId}><span className="preview-name" style={{ fontFamily:previewFont.family, fontSize:previewFit.nameSize, left:`calc(50% + ${previewFit.nameOffset}px)` }}>{playerName || "TEAM NAME"}</span><strong className="preview-number" style={{ fontFamily:previewFont.family, fontSize:previewFit.numberSize, left:`calc(50% + ${previewFit.numberOffset}px)` }}>{number || "00"}</strong></div></div>
           <div className="preview-summary">
-            <div><span>英文字體</span><strong>{fonts.find((font) => font.id === selectedFontIds.english)?.name ?? "尚未選擇"}</strong></div>
-            <div><span>數字字體</span><strong>{fonts.find((font) => font.id === selectedFontIds.number)?.name ?? "尚未選擇"}</strong></div>
-            <div><span>中文字體</span><strong>{fonts.find((font) => font.id === selectedFontIds.chinese)?.name ?? "尚未選擇"}</strong></div>
+            <div><span>選擇字體</span><strong>{selectedFont?.name ?? "尚未選擇"}</strong></div>
           </div>
         </aside>
       </div>

@@ -5,7 +5,7 @@ import { LINE_URL } from "../catalog";
 import { SiteFooter, SiteHeader } from "../components/SiteHeader";
 
 type StyleSelection = { side?:string; styleName?:string; variantName?:string; image?:string; secondaryImage?:string };
-type FontSelection = { teamName?:string; number?:string; englishFontName?:string; numberFontName?:string; chineseFontName?:string };
+type FontSelection = { teamName?:string; fontName?:string };
 
 export default function OrderSummaryPage() {
   const [style, setStyle] = useState<StyleSelection | null>(null);
@@ -20,8 +20,8 @@ export default function OrderSummaryPage() {
   }, []);
 
   const orderMessage = useMemo(() => {
-    if (!style?.styleName || !style?.variantName || !font?.teamName || !font?.englishFontName || !font?.numberFontName || !font?.chineseFontName) return "";
-    return `您好，我想訂購籃球衣\n款式是：${style.styleName}\n配色是：${style.variantName}\n隊伍名稱是：${font.teamName}\n號碼是：${font.number || "未填寫"}\n英文字體是：${font.englishFontName}\n數字字體是：${font.numberFontName}\n中文字體是：${font.chineseFontName}`;
+    if (!style?.styleName || !style?.variantName || !font?.teamName || !font?.fontName) return "";
+    return `您好，我想訂購籃球衣\n款式是：${style.styleName}\n配色是：${style.variantName}\n隊伍名稱是：${font.teamName}\n字體是：${font.fontName}`;
   }, [style, font]);
 
   const copyMessage = async () => {
