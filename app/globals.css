@@ -202,14 +202,13 @@ button:focus-visible,a:focus-visible { outline:3px solid rgba(185,152,85,.45); o
 .order-message-card { display:flex; flex-direction:column; justify-content:center; padding:clamp(28px,4vw,48px); background:#fff; }
 .order-message-card>span { color:var(--gold); font:850 9px/1 Arial; letter-spacing:.18em; }
 .order-message-card pre { margin:18px 0 26px; padding:23px; border-left:3px solid var(--gold); background:#f7f7f5; color:#181818; white-space:pre-wrap; font:800 17px/1.9 Arial,"Noto Sans TC",sans-serif; }
-.copy-message-btn,.font-next-btn,.line-order-link { display:flex; align-items:center; justify-content:space-between; width:100%; padding:16px 18px; border-radius:8px; font-size:12px; font-weight:900; cursor:pointer; text-decoration:none; transition:.2s; }
+.copy-message-btn,.line-order-link { display:flex; align-items:center; justify-content:space-between; width:100%; padding:16px 18px; border-radius:8px; font-size:12px; font-weight:900; cursor:pointer; text-decoration:none; transition:.2s; }
 .copy-message-btn { border:1px solid #111; background:#111; color:#fff; }
 .copy-message-btn.copied { border-color:#168244; background:#168244; }
-.copy-message-btn b,.font-next-btn b,.line-order-link b { color:var(--gold); }
-.font-next-btn { margin-top:10px; border:1px solid #ccc; background:#fff; color:#111; }
+.copy-message-btn b,.line-order-link b { color:var(--gold); }
 .line-order-link { margin-top:10px; border:1px solid #08c755; background:#08c755; color:#071e10; }
 .line-order-link b { color:#071e10; }
-.copy-message-btn:hover,.font-next-btn:hover,.line-order-link:hover { transform:translateY(-2px); }
+.copy-message-btn:hover,.line-order-link:hover { transform:translateY(-2px); }
 
 .finish-copy { max-width:680px; margin:0 auto 34px; text-align:center; }
 .finish-kicker { color:var(--gold); font:850 10px/1 Arial; letter-spacing:.18em; }

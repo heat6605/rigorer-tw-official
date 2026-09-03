@@ -42,7 +42,6 @@ export default function OrderSummaryPage() {
           </div>
           <div className="order-message-card"><span>ORDER MESSAGE</span><pre>{orderMessage}</pre>
             <button className={`copy-message-btn ${copied ? "copied" : ""}`} type="button" onClick={copyMessage}>{copied ? "✓ 已複製訂購文字" : "複製訂購文字"}<b>＋</b></button>
-            <a className="font-next-btn" href="/member">填寫客戶資料 <b>→</b></a>
             <a className="line-order-link" href={LINE_URL} target="_blank" rel="noreferrer">前往 LINE 官方客服 <b>↗</b></a>
           </div>
         </div>
