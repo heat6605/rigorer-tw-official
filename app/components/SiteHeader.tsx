@@ -1,5 +1,7 @@
 import { LINE_URL, RIGORER_LOGO } from "../catalog";
 
+const ORDER_STATUS_URL = "https://rigorer-tw-order-status.heat6605.chatgpt.site";
+
 export function SiteHeader({ active }: { active: "catalog" | "styles" | "fonts" | "fitting" | "faq" | "process" | "showcase" | "member" }) {
   return <header className="site-header">
     <a className="brand" href="/" aria-label="準者球衣型錄首頁"><img className="brand-logo" src={RIGORER_LOGO} alt="RIGORER 準者" /></a>
@@ -20,6 +22,7 @@ export function SiteHeader({ active }: { active: "catalog" | "styles" | "fonts" 
       </span>
       <span className="nav-group">
         <a className={active === "member" ? "active" : ""} href="/member">會員登記</a>
+        <a href={ORDER_STATUS_URL}>訂單查詢</a>
       </span>
     </nav>
     <a className="header-line" href={LINE_URL} target="_blank" rel="noreferrer">LINE 客服 <span>↗</span></a>
@@ -43,6 +46,7 @@ export function SiteFooter() {
           <a href="/fonts">字體</a>
           <a href="/faq">常見問題</a>
           <a href="/member">會員登記</a>
+          <a href={ORDER_STATUS_URL}>訂單查詢</a>
         </div>
       </nav>
 
