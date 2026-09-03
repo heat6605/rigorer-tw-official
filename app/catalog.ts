@@ -142,6 +142,15 @@ export const catalog: Record<Side, JerseyStyle[]> = {
       { name: "紫白", image: "/products/shanji-double-colors/purple-white-top.jpg", secondaryImage: "/products/shanji-double-colors/purple-white-shorts.jpg" },
       { name: "橘白", image: "/products/shanji-double-colors/orange-white-top.jpg", secondaryImage: "/products/shanji-double-colors/orange-white-shorts.jpg" },
     ] },
+    { name: "先鋒", thumbnail: "/products/xianfeng-double-colors/black-gold-top.jpg", variants: [
+      { name: "黑金", image: "/products/xianfeng-double-colors/black-gold-top.jpg", secondaryImage: "/products/xianfeng-double-colors/black-gold-shorts.jpg" },
+      { name: "橘靛", image: "/products/xianfeng-double-colors/orange-navy-top.jpg", secondaryImage: "/products/xianfeng-double-colors/orange-navy-shorts.jpg" },
+      { name: "藍粉", image: "/products/xianfeng-double-colors/lightblue-pink-top.jpg", secondaryImage: "/products/xianfeng-double-colors/lightblue-pink-shorts.jpg" },
+      { name: "黑紅", image: "/products/xianfeng-double-colors/black-red-top.jpg", secondaryImage: "/products/xianfeng-double-colors/black-red-shorts.jpg" },
+      { name: "靛藍", image: "/products/xianfeng-double-colors/blue-lightblue-top.jpg", secondaryImage: "/products/xianfeng-double-colors/blue-lightblue-shorts.jpg" },
+      { name: "紅黑", image: "/products/xianfeng-double-colors/red-black-top.jpg", secondaryImage: "/products/xianfeng-double-colors/red-black-shorts.jpg" },
+      { name: "綠黑", image: "/products/xianfeng-double-colors/green-black-top.jpg", secondaryImage: "/products/xianfeng-double-colors/green-black-shorts.jpg" },
+    ] },
   ],
 };
 
