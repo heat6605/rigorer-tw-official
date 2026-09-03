@@ -10,9 +10,7 @@ export function SiteHeader({ active }: { active: "catalog" | "styles" | "fonts" 
         <a className={active === "fonts" ? "active" : ""} href="/fonts">字體</a>
       </span>
       <span className="nav-group">
-        <a className={active === "fitting" ? "active" : ""} href="/fitting-request">套量申請</a>
         <a className={active === "faq" ? "active" : ""} href="/faq">常見問題</a>
-        <a className={active === "showcase" ? "active" : ""} href="/showcase">成品展示</a>
       </span>
       <span className="nav-group">
         <a className={active === "member" ? "active" : ""} href="/member">客戶資料</a>
@@ -37,9 +35,7 @@ export function SiteFooter() {
           <a href="/">首頁</a>
           <a href="/styles">款式</a>
           <a href="/fonts">字體</a>
-          <a href="/fitting-request">套量申請</a>
           <a href="/faq">常見問題</a>
-          <a href="/showcase">成品展示</a>
           <a href="/member">客戶資料</a>
         </div>
       </nav>
