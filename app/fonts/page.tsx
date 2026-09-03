@@ -142,8 +142,8 @@ export default function FontsPage() {
           {!playerName.trim() && <p className="font-name-required">請先填寫隊伍名稱，再從中文或英文字體中擇一挑選。</p>}
           <div className="font-heading"><span>FONT COLLECTION</span><h2>挑選字體</h2></div>
           <div className="font-category-tabs" role="tablist" aria-label="字體分類">
-            <button className={category === "chinese" ? "active" : ""} type="button" onClick={() => changeCategory("chinese")}>中文＆數字字體 <small>{selectedFont?.category === "chinese" ? "✓" : "7"}</small></button>
-            <button className={category === "english" ? "active" : ""} type="button" onClick={() => changeCategory("english")}>英文＆數字字體 <small>{selectedFont?.category === "english" ? "✓" : "44"}</small></button>
+            <button className={category === "chinese" ? "active" : ""} type="button" onClick={() => changeCategory("chinese")}>選中文＆數字字體</button>
+            <button className={category === "english" ? "active" : ""} type="button" onClick={() => changeCategory("english")}>選英文＆數字字體</button>
           </div>
           <div className="font-page-status"><span>{categoryLabels[category]}・擇一選擇</span><strong>第 {fontPage + 1} 頁，共 {pageCount} 頁</strong></div>
           <div className="font-grid">{pagedFonts.map((font) => <button className={`font-card ${selectedFontId === font.id ? "selected" : ""}`} type="button" key={font.id} disabled={!playerName.trim()} onClick={() => chooseFont(font)}>
