@@ -9,17 +9,26 @@ type StyleWithSide = JerseyStyle & { side: Side };
 
 export default function StylesPage() {
   const [step, setStep] = useState<Step>(1);
+  const [activeSide, setActiveSide] = useState<Side>("單面");
   const [styleKey, setStyleKey] = useState<string | null>(null);
   const [variantName, setVariantName] = useState<string | null>(null);
+  const visibleStyles = useMemo(() => allStyles.filter((item) => item.side === activeSide), [activeSide]);
   const selectedStyle = useMemo<StyleWithSide | null>(() => allStyles.find((item) => `${item.side}-${item.name}` === styleKey) ?? null, [styleKey]);
   const selectedVariant: Variant | null = selectedStyle?.variants.find((item) => item.name === variantName) ?? null;
 
   useEffect(() => {
     try {
-      const requestedStyle = new URLSearchParams(window.location.search).get("style");
+      const params = new URLSearchParams(window.location.search);
+      const requestedStyle = params.get("style");
+      const requestedCategory = params.get("category");
+      if (requestedCategory === "double") setActiveSide("雙面");
+      if (requestedCategory === "single") setActiveSide("單面");
       if (requestedStyle) {
         const match = allStyles.find((item) => item.name === requestedStyle);
-        if (match) setStyleKey(`${match.side}-${match.name}`);
+        if (match) {
+          setActiveSide(match.side);
+          setStyleKey(`${match.side}-${match.name}`);
+        }
       }
       const stored = JSON.parse(localStorage.getItem("rigorerSelection") ?? "null");
       if (!requestedStyle && stored?.side && stored?.styleName) {
@@ -50,14 +59,18 @@ export default function StylesPage() {
       </div>)}</div>
 
       {step === 1 && <div className="step-stage">
-        <div className="product-grid style-grid direct-style-grid">{allStyles.map((item) => {
+        <nav className="style-category-tabs" aria-label="球衣款式分類">
+          <a className={activeSide === "單面" ? "active" : ""} href="/styles?category=single"><small>BASKETBALL</small><strong>籃球－單面</strong></a>
+          <a className={activeSide === "雙面" ? "active" : ""} href="/styles?category=double"><small>BASKETBALL</small><strong>籃球－雙面</strong></a>
+        </nav>
+        {visibleStyles.length > 0 ? <div className="product-grid style-grid direct-style-grid">{visibleStyles.map((item) => {
           const key = `${item.side}-${item.name}`;
           const thumbnail = item.thumbnail ?? item.variants[0].image;
           return <button className={`product-card ${styleKey === key ? "selected" : ""}`} key={key} type="button" onClick={() => chooseStyle(key)} aria-label={`選擇 ${item.name} 並進入配色`}>
             <span className={`image-wrap ${thumbnail.startsWith("/products/") ? "uploaded-image" : ""}`}><img src={thumbnail} alt={item.name} style={{ objectPosition: item.variants[0].focus }} /></span>
             <span className="product-meta"><small>{item.side}籃球服套裝</small><strong>{item.name}</strong>{(item.code || item.price) && <em>{[item.code, item.price].filter(Boolean).join("・")}</em>}<i>{styleKey === key ? "✓" : "+"}</i></span>
           </button>;
-        })}</div>
+        })}</div> : <div className="style-category-empty"><span>COMING SOON</span><h2>籃球－雙面款式準備中</h2><p>雙面球衣款式將於整理完成後上架，請先瀏覽單面款式。</p><a href="/styles?category=single">查看籃球－單面款式 <b>→</b></a></div>}
       </div>}
 
       {step === 2 && selectedStyle && <div className="step-stage"><StepHeading number="02" title={`為「${selectedStyle.name}」挑選配色`} description="只顯示這個款式可選的官方配色，螢幕顏色僅供參考。" />

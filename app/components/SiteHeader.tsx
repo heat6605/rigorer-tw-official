@@ -6,7 +6,13 @@ export function SiteHeader({ active }: { active: "catalog" | "styles" | "fonts" 
     <nav className="main-nav" aria-label="主要導覽">
       <span className="nav-group">
         <a className={active === "catalog" ? "active" : ""} href="/">首頁</a>
-        <a className={active === "styles" ? "active" : ""} href="/styles">款式</a>
+        <details className={`nav-dropdown ${active === "styles" ? "active" : ""}`}>
+          <summary>款式</summary>
+          <div className="nav-submenu">
+            <a href="/styles?category=single">籃球－單面</a>
+            <a href="/styles?category=double">籃球－雙面</a>
+          </div>
+        </details>
         <a className={active === "fonts" ? "active" : ""} href="/fonts">字體</a>
       </span>
       <span className="nav-group">
