@@ -215,6 +215,22 @@ export const catalog: Record<Side, JerseyStyle[]> = {
       { name: "綠黑", image: "/products/tianjixian-double-colors/09.jpg", secondaryImage: "/products/tianjixian-double-colors/10.jpg" },
       { name: "藍黃", image: "/products/tianjixian-double-colors/11.jpg", secondaryImage: "/products/tianjixian-double-colors/12.jpg" },
     ] },
+    { name: "破風", thumbnail: "/products/pofeng-double-colors/01.jpg", variants: [
+      { name: "紅", image: "/products/pofeng-double-colors/01.jpg", secondaryImage: "/products/pofeng-double-colors/02.jpg" },
+      { name: "靛", image: "/products/pofeng-double-colors/03.jpg", secondaryImage: "/products/pofeng-double-colors/04.jpg" },
+      { name: "黑", image: "/products/pofeng-double-colors/05.jpg", secondaryImage: "/products/pofeng-double-colors/06.jpg" },
+      { name: "紫", image: "/products/pofeng-double-colors/07.jpg", secondaryImage: "/products/pofeng-double-colors/08.jpg" },
+      { name: "藍", image: "/products/pofeng-double-colors/09.jpg", secondaryImage: "/products/pofeng-double-colors/10.jpg" },
+      { name: "黃", image: "/products/pofeng-double-colors/11.jpg", secondaryImage: "/products/pofeng-double-colors/12.jpg" },
+    ] },
+    { name: "稜線", thumbnail: "/products/lengxian-double-colors/01.jpg", variants: [
+      { name: "紅", image: "/products/lengxian-double-colors/01.jpg", secondaryImage: "/products/lengxian-double-colors/02.jpg" },
+      { name: "橘", image: "/products/lengxian-double-colors/03.jpg", secondaryImage: "/products/lengxian-double-colors/04.jpg" },
+      { name: "金", image: "/products/lengxian-double-colors/05.jpg", secondaryImage: "/products/lengxian-double-colors/06.jpg" },
+      { name: "藍", image: "/products/lengxian-double-colors/07.jpg", secondaryImage: "/products/lengxian-double-colors/08.jpg" },
+      { name: "紫", image: "/products/lengxian-double-colors/09.jpg", secondaryImage: "/products/lengxian-double-colors/10.jpg" },
+      { name: "綠", image: "/products/lengxian-double-colors/11.jpg", secondaryImage: "/products/lengxian-double-colors/12.jpg" },
+    ] },
   ],
 };
 
