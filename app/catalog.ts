@@ -2,7 +2,7 @@ export type Side = "單面" | "雙面";
 export type Variant = { name: string; image: string; secondaryImage?: string; focus?: string };
 export type JerseyStyle = { name: string; code?: string; price?: string; thumbnail?: string; variants: Variant[] };
 
-export const LINE_URL = "https://page.line.me/bun7500t?openQrModal=true";
+export const LINE_URL = "https://line.me/R/ti/p/@471uklmn";
 export const RIGORER_LOGO = "https://media.base44.com/images/public/6a4e51818e5e7fe00b233192/ec9709c5e_.png";
 
 export const uploadedSingleStyles: JerseyStyle[] = [
