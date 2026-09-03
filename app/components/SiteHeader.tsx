@@ -19,7 +19,7 @@ export function SiteHeader({ active }: { active: "catalog" | "styles" | "fonts" 
         <a className={active === "faq" ? "active" : ""} href="/faq">常見問題</a>
       </span>
       <span className="nav-group">
-        <a className={active === "member" ? "active" : ""} href="/member">客戶資料</a>
+        <a className={active === "member" ? "active" : ""} href="/member">會員登記</a>
       </span>
     </nav>
     <a className="header-line" href={LINE_URL} target="_blank" rel="noreferrer">LINE 客服 <span>↗</span></a>
@@ -42,7 +42,7 @@ export function SiteFooter() {
           <a href="/styles">款式</a>
           <a href="/fonts">字體</a>
           <a href="/faq">常見問題</a>
-          <a href="/member">客戶資料</a>
+          <a href="/member">會員登記</a>
         </div>
       </nav>
 
