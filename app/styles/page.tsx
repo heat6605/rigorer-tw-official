@@ -24,7 +24,8 @@ export default function StylesPage() {
       if (requestedCategory === "double") setActiveSide("雙面");
       if (requestedCategory === "single") setActiveSide("單面");
       if (requestedStyle) {
-        const match = allStyles.find((item) => item.name === requestedStyle);
+        const requestedSide: Side | null = requestedCategory === "double" ? "雙面" : requestedCategory === "single" ? "單面" : null;
+        const match = allStyles.find((item) => item.name === requestedStyle && (!requestedSide || item.side === requestedSide));
         if (match) {
           setActiveSide(match.side);
           setStyleKey(`${match.side}-${match.name}`);
@@ -71,7 +72,7 @@ export default function StylesPage() {
             <span className={`image-wrap ${thumbnail.startsWith("/products/") ? "uploaded-image" : ""}`}><img src={thumbnail} alt={item.name} style={{ objectPosition: item.variants[0].focus }} /></span>
             <span className="product-meta"><small>{item.side}籃球服套裝</small><strong>{item.name}</strong>{(item.code || item.price) && <em>{[item.code, item.price].filter(Boolean).join("・")}</em>}<i>{styleKey === key ? "✓" : "+"}</i></span>
           </button>;
-        })}</div> : <div className="style-category-empty"><span>COMING SOON</span><h2>籃球－雙面款式準備中</h2><p>雙面球衣款式將於整理完成後上架，請先瀏覽單面款式。</p><a href="/styles?category=single">查看籃球－單面款式 <b>→</b></a></div>}
+        })}</div> : <div className="style-category-empty"><span>COMING SOON</span><h2>此分類款式準備中</h2><p>款式整理完成後會陸續上架。</p></div>}
       </div>}
 
       {step === 2 && selectedStyle && <div className="step-stage"><StepHeading number="02" title={`為「${selectedStyle.name}」挑選配色`} description="只顯示這個款式可選的官方配色，螢幕顏色僅供參考。" />

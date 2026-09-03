@@ -124,7 +124,17 @@ export const uploadedSingleStyles: JerseyStyle[] = [
 
 export const catalog: Record<Side, JerseyStyle[]> = {
   單面: uploadedSingleStyles,
-  雙面: [],
+  雙面: [
+    { name: "菱格", thumbnail: "/products/lingge-double-colors/yellow-black-top.jpg", variants: [
+      { name: "黃黑", image: "/products/lingge-double-colors/yellow-black-top.jpg", secondaryImage: "/products/lingge-double-colors/yellow-black-shorts.jpg" },
+      { name: "黑紅", image: "/products/lingge-double-colors/black-red-top.jpg", secondaryImage: "/products/lingge-double-colors/black-red-shorts.jpg" },
+      { name: "紅黑", image: "/products/lingge-double-colors/red-black-top.jpg", secondaryImage: "/products/lingge-double-colors/red-black-shorts.jpg" },
+      { name: "紫黃", image: "/products/lingge-double-colors/purple-yellow-top.jpg", secondaryImage: "/products/lingge-double-colors/purple-yellow-shorts.jpg" },
+      { name: "綠靛", image: "/products/lingge-double-colors/green-navy-top.jpg", secondaryImage: "/products/lingge-double-colors/green-navy-shorts.jpg" },
+      { name: "藍黃", image: "/products/lingge-double-colors/blue-yellow-top.jpg", secondaryImage: "/products/lingge-double-colors/blue-yellow-shorts.jpg" },
+      { name: "靛藍綠", image: "/products/lingge-double-colors/navy-aqua-top.jpg", secondaryImage: "/products/lingge-double-colors/navy-aqua-shorts.jpg" },
+    ] },
+  ],
 };
 
 export const allStyles = (["單面", "雙面"] as Side[]).flatMap((side) => catalog[side].map((style) => ({ ...style, side })));
