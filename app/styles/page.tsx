@@ -53,7 +53,7 @@ export default function StylesPage() {
 
   return <main className="site-shell page-soft">
     <SiteHeader active="styles" />
-    <section className="selector-section selector-subpage"><div className="selector-panel">
+    <section className="selector-section selector-subpage"><div className={`selector-panel ${step === 2 ? "color-selector-panel" : ""}`}>
       <div className="progress-row">{([1, 2] as const).map((item, index) => <div className="progress-fragment" key={item}>
         <button className={`progress-item ${step >= item ? "active" : ""}`} type="button" disabled={item >= step} onClick={() => item < step && goTo(item)}><b>0{item}</b><span>{["選擇款式", "選擇配色"][index]}</span></button>
         {item < 2 && <div className={`progress-line ${step > item ? "filled" : ""}`} />}
@@ -76,15 +76,28 @@ export default function StylesPage() {
 
       {step === 2 && selectedStyle && <div className="step-stage"><StepHeading number="02" title={`為「${selectedStyle.name}」挑選配色`} description="只顯示這個款式可選的官方配色，螢幕顏色僅供參考。" />
         <div className="selected-style-strip"><span>{selectedStyle.side}</span><strong>{selectedStyle.name}</strong>{selectedStyle.code && <small>{selectedStyle.code}</small>}</div>
-        <div className="product-grid color-grid">{selectedStyle.variants.map((variant) => <VariantCard
-          key={variant.name}
-          styleName={selectedStyle.name}
-          styleCode={selectedStyle.code}
-          variant={variant}
-          selected={variantName === variant.name}
-          onSelect={() => setVariantName(variant.name)}
-        />)}</div>
-        <div className="actions"><button className="back-btn" type="button" onClick={() => goTo(1)}>← 返回選款式</button><ActionButton disabled={!selectedVariant} onClick={goToFonts}>下一步・填寫隊名與選擇字體</ActionButton></div>
+        <div className="color-selection-layout">
+          <div className="color-selection-main">
+            <div className="product-grid color-grid">{selectedStyle.variants.map((variant) => <VariantCard
+              key={variant.name}
+              styleName={selectedStyle.name}
+              styleCode={selectedStyle.code}
+              variant={variant}
+              selected={variantName === variant.name}
+              onSelect={() => setVariantName(variant.name)}
+            />)}</div>
+            <div className="actions"><button className="back-btn" type="button" onClick={() => goTo(1)}>← 返回選款式</button><ActionButton disabled={!selectedVariant} onClick={goToFonts}>下一步・填寫隊名與選擇字體</ActionButton></div>
+          </div>
+          {selectedStyle.side === "單面" && <aside className="style-product-guide" aria-label="單面籃球商品資訊與尺寸表">
+            <a href="/size-guides/single-basketball-info.jpg" target="_blank" rel="noreferrer" aria-label="放大查看單面籃球產品資訊">
+              <img src="/size-guides/single-basketball-info.jpg" alt="單面籃球產品資訊" />
+            </a>
+            <a href="/size-guides/single-basketball-size.jpg" target="_blank" rel="noreferrer" aria-label="放大查看單面籃球尺寸表">
+              <img src="/size-guides/single-basketball-size.jpg" alt="單面籃球尺寸表" />
+            </a>
+            <p>點擊圖片可放大查看</p>
+          </aside>}
+        </div>
       </div>}
     </div></section>
     <SiteFooter />
