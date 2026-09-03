@@ -199,6 +199,22 @@ export const catalog: Record<Side, JerseyStyle[]> = {
       { name: "黑紅", image: "/products/lieying-double-colors/09.jpg", secondaryImage: "/products/lieying-double-colors/10.jpg" },
       { name: "綠橘", image: "/products/lieying-double-colors/11.jpg", secondaryImage: "/products/lieying-double-colors/12.jpg" },
     ] },
+    { name: "獸牙", thumbnail: "/products/shouya-double-colors/01.jpg", variants: [
+      { name: "紅白", image: "/products/shouya-double-colors/01.jpg", secondaryImage: "/products/shouya-double-colors/02.jpg" },
+      { name: "藍白", image: "/products/shouya-double-colors/03.jpg", secondaryImage: "/products/shouya-double-colors/04.jpg" },
+      { name: "黑金", image: "/products/shouya-double-colors/05.jpg", secondaryImage: "/products/shouya-double-colors/06.jpg" },
+      { name: "綠橘", image: "/products/shouya-double-colors/07.jpg", secondaryImage: "/products/shouya-double-colors/08.jpg" },
+      { name: "黃橘", image: "/products/shouya-double-colors/09.jpg", secondaryImage: "/products/shouya-double-colors/10.jpg" },
+      { name: "紫白", image: "/products/shouya-double-colors/11.jpg", secondaryImage: "/products/shouya-double-colors/12.jpg" },
+    ] },
+    { name: "天際線", thumbnail: "/products/tianjixian-double-colors/01.jpg", variants: [
+      { name: "紅黃", image: "/products/tianjixian-double-colors/01.jpg", secondaryImage: "/products/tianjixian-double-colors/02.jpg" },
+      { name: "紫白", image: "/products/tianjixian-double-colors/03.jpg", secondaryImage: "/products/tianjixian-double-colors/04.jpg" },
+      { name: "橘白", image: "/products/tianjixian-double-colors/05.jpg", secondaryImage: "/products/tianjixian-double-colors/06.jpg" },
+      { name: "金黑", image: "/products/tianjixian-double-colors/07.jpg", secondaryImage: "/products/tianjixian-double-colors/08.jpg" },
+      { name: "綠黑", image: "/products/tianjixian-double-colors/09.jpg", secondaryImage: "/products/tianjixian-double-colors/10.jpg" },
+      { name: "藍黃", image: "/products/tianjixian-double-colors/11.jpg", secondaryImage: "/products/tianjixian-double-colors/12.jpg" },
+    ] },
   ],
 };
 
