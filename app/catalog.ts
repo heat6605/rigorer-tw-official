@@ -167,6 +167,22 @@ export const catalog: Record<Side, JerseyStyle[]> = {
       { name: "靛白", image: "/products/dianguang-double-colors/09.jpg", secondaryImage: "/products/dianguang-double-colors/10.jpg" },
       { name: "藍白", image: "/products/dianguang-double-colors/11.jpg", secondaryImage: "/products/dianguang-double-colors/12.jpg" },
     ] },
+    { name: "箭矢", thumbnail: "/products/jianshi-double-colors/01.jpg", variants: [
+      { name: "紫白", image: "/products/jianshi-double-colors/01.jpg", secondaryImage: "/products/jianshi-double-colors/02.jpg" },
+      { name: "藍白", image: "/products/jianshi-double-colors/03.jpg", secondaryImage: "/products/jianshi-double-colors/04.jpg" },
+      { name: "黃紅", image: "/products/jianshi-double-colors/05.jpg", secondaryImage: "/products/jianshi-double-colors/06.jpg" },
+      { name: "紅黑", image: "/products/jianshi-double-colors/07.jpg", secondaryImage: "/products/jianshi-double-colors/08.jpg" },
+      { name: "綠橘", image: "/products/jianshi-double-colors/09.jpg", secondaryImage: "/products/jianshi-double-colors/10.jpg" },
+      { name: "黑金", image: "/products/jianshi-double-colors/11.jpg", secondaryImage: "/products/jianshi-double-colors/12.jpg" },
+    ] },
+    { name: "賽道", thumbnail: "/products/saidao-double-colors/01.jpg", variants: [
+      { name: "紅黑", image: "/products/saidao-double-colors/01.jpg", secondaryImage: "/products/saidao-double-colors/02.jpg" },
+      { name: "藍粉", image: "/products/saidao-double-colors/03.jpg", secondaryImage: "/products/saidao-double-colors/04.jpg" },
+      { name: "黑金", image: "/products/saidao-double-colors/05.jpg", secondaryImage: "/products/saidao-double-colors/06.jpg" },
+      { name: "黑橘", image: "/products/saidao-double-colors/07.jpg", secondaryImage: "/products/saidao-double-colors/08.jpg" },
+      { name: "綠橘", image: "/products/saidao-double-colors/09.jpg", secondaryImage: "/products/saidao-double-colors/10.jpg" },
+      { name: "紫白", image: "/products/saidao-double-colors/11.jpg", secondaryImage: "/products/saidao-double-colors/12.jpg" },
+    ] },
   ],
 };
 
