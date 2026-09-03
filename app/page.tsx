@@ -46,7 +46,10 @@ export default function CatalogPage() {
   return <main className="site-shell catalog-document-page">
     <SiteHeader active="catalog" />
     <section className="home-banner" aria-label="準者品牌形象">
-      <img src="/banner/austin-reeves-a4.jpg" alt="準者 RIGORER 品牌形象代言人奧斯汀・里夫斯" />
+      <picture>
+        <source media="(max-width: 720px)" srcSet="/banner/austin-reeves-a4.jpg" />
+        <img src="/banner/home-banner.jpg" alt="準者 RIGORER 品牌形象代言人奧斯汀・里夫斯" />
+      </picture>
     </section>
 
     <section className="a4-catalog-section" id="catalog-pages">
