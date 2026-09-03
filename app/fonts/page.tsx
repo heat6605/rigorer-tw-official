@@ -13,7 +13,7 @@ const englishFontNames: Record<number, string> = {
   29:"Academic M54", 30:"IFC Railroad", 31:"自創字體", 32:"Superion", 33:"Vermin Vibes", 35:"Stencil", 36:"Pulsar", 37:"Black Street", 38:"Throwup",
   39:"Blue Jays Wilson", 40:"Walshes", 41:"College Block", 42:"Chewy", 43:"DV43", 44:"Arya Double", 47:"School", 48:"Jersey Sharp",
 };
-const englishNumbers = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,20,21,22,23,24,25,26,27,28,29,30,31,32,33,35,36,37,38,39,40,41,42,43,44,47,48];
+const englishNumbers = [1,2,4,5,6,7,8,9,10,11,12,14,15,17,20,22,23,24,25,28,29,30,31,33,35,36,37,38,40,41,42,43,44,47,48];
 const chineseNumbers = [1,6,7,8];
 const fonts: FontOption[] = [
   ...englishNumbers.map((fontNumber) => ({ id:`font-en-${fontNumber}`, name:`英文＆數字字體 ${String(fontNumber).padStart(2,"0")}`, en:englishFontNames[fontNumber], family:`DVFont${fontNumber}`, file:`/fonts/font-${fontNumber}.woff2`, sample:"RIGORER 24", category:"english" as const })),
