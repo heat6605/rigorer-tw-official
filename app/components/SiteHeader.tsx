@@ -1,6 +1,6 @@
 import { LINE_URL, RIGORER_LOGO } from "../catalog";
 
-const ORDER_STATUS_URL = "https://rigorer-tw-order-status.heat6605.chatgpt.site";
+const ORDER_STATUS_URL = "https://order.rigorertw.com";
 
 export function SiteHeader({ active }: { active: "catalog" | "styles" | "fonts" | "fitting" | "faq" | "process" | "showcase" | "member" }) {
   return <header className="site-header">
