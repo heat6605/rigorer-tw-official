@@ -134,6 +134,14 @@ export const catalog: Record<Side, JerseyStyle[]> = {
       { name: "藍黃", image: "/products/lingge-double-colors/blue-yellow-top.jpg", secondaryImage: "/products/lingge-double-colors/blue-yellow-shorts.jpg" },
       { name: "靛藍綠", image: "/products/lingge-double-colors/navy-aqua-top.jpg", secondaryImage: "/products/lingge-double-colors/navy-aqua-shorts.jpg" },
     ] },
+    { name: "山脊", thumbnail: "/products/shanji-double-colors/black-gold-top.jpg", variants: [
+      { name: "黑金", image: "/products/shanji-double-colors/black-gold-top.jpg", secondaryImage: "/products/shanji-double-colors/black-gold-shorts.jpg" },
+      { name: "紅白", image: "/products/shanji-double-colors/red-white-top.jpg", secondaryImage: "/products/shanji-double-colors/red-white-shorts.jpg" },
+      { name: "綠白", image: "/products/shanji-double-colors/green-white-top.jpg", secondaryImage: "/products/shanji-double-colors/green-white-shorts.jpg" },
+      { name: "藍白", image: "/products/shanji-double-colors/blue-white-top.jpg", secondaryImage: "/products/shanji-double-colors/blue-white-shorts.jpg" },
+      { name: "紫白", image: "/products/shanji-double-colors/purple-white-top.jpg", secondaryImage: "/products/shanji-double-colors/purple-white-shorts.jpg" },
+      { name: "橘白", image: "/products/shanji-double-colors/orange-white-top.jpg", secondaryImage: "/products/shanji-double-colors/orange-white-shorts.jpg" },
+    ] },
   ],
 };
 
