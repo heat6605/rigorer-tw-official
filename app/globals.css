@@ -432,7 +432,7 @@ button:focus-visible,a:focus-visible { outline:3px solid rgba(185,152,85,.45); o
 .site-footer-brand img { display:block; width:92px; height:52px; margin-bottom:14px; object-fit:contain; object-position:left center; filter:invert(1); }
 .site-footer-brand strong { display:block; margin-bottom:14px; color:#fff; font-size:14px; line-height:1.6; letter-spacing:.05em; }
 .site-footer p { margin:0; font-size:13px; line-height:1.8; letter-spacing:.01em; }
-.site-footer-links div { display:grid; grid-template-columns:1fr 1fr; gap:12px 24px; }
+.site-footer-links div { display:grid; grid-template-columns:1fr 1fr; grid-template-rows:repeat(3,auto); grid-auto-flow:column; gap:12px 24px; }
 .site-footer-links a { color:#aaa; font-size:13px; text-decoration:none; transition:.2s; }
 .site-footer-links a:hover { color:var(--gold); }
 .site-footer-service>a { display:inline-flex; align-items:center; justify-content:space-between; gap:35px; min-width:220px; margin-top:22px; padding:14px 16px; border-radius:7px; background:var(--gold); color:#111; font-size:12px; font-weight:900; text-decoration:none; }
