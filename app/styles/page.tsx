@@ -15,6 +15,8 @@ export default function StylesPage() {
   const visibleStyles = useMemo(() => allStyles.filter((item) => item.side === activeSide), [activeSide]);
   const selectedStyle = useMemo<StyleWithSide | null>(() => allStyles.find((item) => `${item.side}-${item.name}` === styleKey) ?? null, [styleKey]);
   const selectedVariant: Variant | null = selectedStyle?.variants.find((item) => item.name === variantName) ?? null;
+  const guideSide: Side = selectedStyle?.side ?? activeSide;
+  const guidePrefix = guideSide === "雙面" ? "double-basketball" : "single-basketball";
 
   useEffect(() => {
     try {
@@ -89,15 +91,15 @@ export default function StylesPage() {
             />)}</div>
             <div className="actions"><button className="back-btn" type="button" onClick={() => goTo(1)}>← 返回選款式</button><ActionButton disabled={!selectedVariant} onClick={goToFonts}>下一步・填寫隊名與選擇字體</ActionButton></div>
           </div>
-          {selectedStyle.side === "單面" && <aside className="style-product-guide" aria-label="單面籃球商品資訊與尺寸表">
-            <a href="/size-guides/single-basketball-info.jpg" target="_blank" rel="noreferrer" aria-label="放大查看單面籃球產品資訊">
-              <img src="/size-guides/single-basketball-info.jpg" alt="單面籃球產品資訊" />
+          <aside className="style-product-guide" aria-label={`${guideSide}籃球商品資訊與尺寸表`}>
+            <a href={`/size-guides/${guidePrefix}-info.jpg`} target="_blank" rel="noreferrer" aria-label={`放大查看${guideSide}籃球產品資訊`}>
+              <img src={`/size-guides/${guidePrefix}-info.jpg`} alt={`${guideSide}籃球產品資訊`} />
             </a>
-            <a href="/size-guides/single-basketball-size.jpg" target="_blank" rel="noreferrer" aria-label="放大查看單面籃球尺寸表">
-              <img src="/size-guides/single-basketball-size.jpg" alt="單面籃球尺寸表" />
+            <a href={`/size-guides/${guidePrefix}-size.jpg`} target="_blank" rel="noreferrer" aria-label={`放大查看${guideSide}籃球尺寸表`}>
+              <img src={`/size-guides/${guidePrefix}-size.jpg`} alt={`${guideSide}籃球尺寸表`} />
             </a>
             <p>點擊圖片可放大查看</p>
-          </aside>}
+          </aside>
         </div>
       </div>}
     </div></section>
