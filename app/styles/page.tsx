@@ -28,6 +28,7 @@ export default function StylesPage() {
         if (match) {
           setActiveSide(match.side);
           setStyleKey(`${match.side}-${match.name}`);
+          setStep(2);
         }
       }
       const stored = JSON.parse(localStorage.getItem("rigorerSelection") ?? "null");

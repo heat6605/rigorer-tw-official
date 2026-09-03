@@ -57,7 +57,7 @@ export default function CatalogPage() {
         <button className="catalog-turn prev" type="button" onClick={() => turnPage(-1)} aria-label="上一頁型錄"><span>←</span><small>PREV</small></button>
         <div className={`catalog-spread ${turnDirection === 1 ? "turn-next" : "turn-prev"}`} key={`${pageIndex}-${nextPageIndex}`}>
           {activePages.map((page) => <article className="catalog-active-page" key={page.src}>
-            <a href={page.src} target="_blank" rel="noreferrer" aria-label={`放大查看 ${page.title} 型錄`}><img src={page.src} alt={`${page.title} A4 款式型錄`} /><span>點擊放大 ↗</span></a>
+            <a href={`/styles?style=${encodeURIComponent(page.title)}`} aria-label={`選擇 ${page.title} 款式並查看配色`}><img src={page.src} alt={`${page.title} A4 款式型錄`} /><span>選擇此款式 →</span></a>
             <div><small>PAGE {String(page.index + 1).padStart(2, "0")}</small><strong>{page.title}</strong><p>{page.description}</p></div>
           </article>)}
         </div>
