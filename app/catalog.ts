@@ -183,6 +183,22 @@ export const catalog: Record<Side, JerseyStyle[]> = {
       { name: "綠橘", image: "/products/saidao-double-colors/09.jpg", secondaryImage: "/products/saidao-double-colors/10.jpg" },
       { name: "紫白", image: "/products/saidao-double-colors/11.jpg", secondaryImage: "/products/saidao-double-colors/12.jpg" },
     ] },
+    { name: "叢林獵手", thumbnail: "/products/conglinlieshou-double-colors/01.jpg", variants: [
+      { name: "綠橘", image: "/products/conglinlieshou-double-colors/01.jpg", secondaryImage: "/products/conglinlieshou-double-colors/02.jpg" },
+      { name: "黑金", image: "/products/conglinlieshou-double-colors/03.jpg", secondaryImage: "/products/conglinlieshou-double-colors/04.jpg" },
+      { name: "橘白", image: "/products/conglinlieshou-double-colors/05.jpg", secondaryImage: "/products/conglinlieshou-double-colors/06.jpg" },
+      { name: "紅黃", image: "/products/conglinlieshou-double-colors/07.jpg", secondaryImage: "/products/conglinlieshou-double-colors/08.jpg" },
+      { name: "藍黃", image: "/products/conglinlieshou-double-colors/09.jpg", secondaryImage: "/products/conglinlieshou-double-colors/10.jpg" },
+      { name: "紫白", image: "/products/conglinlieshou-double-colors/11.jpg", secondaryImage: "/products/conglinlieshou-double-colors/12.jpg" },
+    ] },
+    { name: "獵鷹", thumbnail: "/products/lieying-double-colors/01.jpg", variants: [
+      { name: "黑金", image: "/products/lieying-double-colors/01.jpg", secondaryImage: "/products/lieying-double-colors/02.jpg" },
+      { name: "藍紅", image: "/products/lieying-double-colors/03.jpg", secondaryImage: "/products/lieying-double-colors/04.jpg" },
+      { name: "紫黃", image: "/products/lieying-double-colors/05.jpg", secondaryImage: "/products/lieying-double-colors/06.jpg" },
+      { name: "藍粉", image: "/products/lieying-double-colors/07.jpg", secondaryImage: "/products/lieying-double-colors/08.jpg" },
+      { name: "黑紅", image: "/products/lieying-double-colors/09.jpg", secondaryImage: "/products/lieying-double-colors/10.jpg" },
+      { name: "綠橘", image: "/products/lieying-double-colors/11.jpg", secondaryImage: "/products/lieying-double-colors/12.jpg" },
+    ] },
   ],
 };
 
