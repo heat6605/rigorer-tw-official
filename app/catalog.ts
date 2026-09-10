@@ -77,7 +77,7 @@ export const uploadedSingleStyles: JerseyStyle[] = [
     { name: "藍", image: "/products/maichong-colors/blue-top.jpg", secondaryImage: "/products/maichong-colors/blue-shorts.jpg" },
     { name: "綠", image: "/products/maichong-colors/green-top.jpg", secondaryImage: "/products/maichong-colors/green-shorts.jpg" },
   ] },
-  { name: "菱格", thumbnail: "/products/lingge-colors/01.jpg", variants: [
+  { name: "菱格", thumbnail: "/products/lingge.jpg", variants: [
     { name: "黃黑", image: "/products/lingge-colors/01.jpg", secondaryImage: "/products/lingge-colors/02.jpg" },
     { name: "黑紅", image: "/products/lingge-colors/03.jpg", secondaryImage: "/products/lingge-colors/04.jpg" },
     { name: "紅黑", image: "/products/lingge-colors/05.jpg", secondaryImage: "/products/lingge-colors/06.jpg" },
@@ -86,7 +86,7 @@ export const uploadedSingleStyles: JerseyStyle[] = [
     { name: "藍黃", image: "/products/lingge-colors/11.jpg", secondaryImage: "/products/lingge-colors/12.jpg" },
     { name: "靛藍綠", image: "/products/lingge-colors/13.jpg", secondaryImage: "/products/lingge-colors/14.jpg" },
   ] },
-  { name: "經典", thumbnail: "/products/jingdian-colors/01.jpg", variants: [
+  { name: "經典", thumbnail: "/products/jingdian.jpg", variants: [
     { name: "米白", image: "/products/jingdian-colors/01.jpg", secondaryImage: "/products/jingdian-colors/02.jpg" },
     { name: "藍白", image: "/products/jingdian-colors/03.jpg", secondaryImage: "/products/jingdian-colors/04.jpg" },
     { name: "綠白", image: "/products/jingdian-colors/05.jpg", secondaryImage: "/products/jingdian-colors/06.jpg" },
@@ -94,7 +94,7 @@ export const uploadedSingleStyles: JerseyStyle[] = [
     { name: "靛白", image: "/products/jingdian-colors/09.jpg", secondaryImage: "/products/jingdian-colors/10.jpg" },
     { name: "紅白", image: "/products/jingdian-colors/11.jpg", secondaryImage: "/products/jingdian-colors/12.jpg" },
   ] },
-  { name: "先鋒", thumbnail: "/products/xianfeng-colors/01.jpg", variants: [
+  { name: "先鋒", thumbnail: "/products/xianfeng.jpg", variants: [
     { name: "黑金", image: "/products/xianfeng-colors/01.jpg", secondaryImage: "/products/xianfeng-colors/02.jpg" },
     { name: "橘靛", image: "/products/xianfeng-colors/03.jpg", secondaryImage: "/products/xianfeng-colors/04.jpg" },
     { name: "藍粉", image: "/products/xianfeng-colors/05.jpg", secondaryImage: "/products/xianfeng-colors/06.jpg" },
