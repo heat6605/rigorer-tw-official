@@ -289,4 +289,13 @@ export const catalog: Record<Side, JerseyStyle[]> = {
   ],
 };
 
-export const allStyles = (["單面", "雙面"] as Side[]).flatMap((side) => catalog[side].map((style) => ({ ...style, side })));
+const sidePrices: Record<Side, string> = {
+  單面: "NT$900／套",
+  雙面: "NT$1,290／套",
+};
+
+export const allStyles = (["單面", "雙面"] as Side[]).flatMap((side) => catalog[side].map((style) => ({
+  ...style,
+  side,
+  price: style.price ?? sidePrices[side],
+})));

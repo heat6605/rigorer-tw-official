@@ -78,7 +78,7 @@ export default function StylesPage() {
       </div>}
 
       {step === 2 && selectedStyle && <div className="step-stage"><StepHeading number="02" title={`為「${selectedStyle.name}」挑選配色`} description="只顯示這個款式可選的官方配色，螢幕顏色僅供參考。" />
-        <div className="selected-style-strip"><span>{selectedStyle.side}</span><strong>{selectedStyle.name}</strong>{selectedStyle.code && <small>{selectedStyle.code}</small>}</div>
+        <div className="selected-style-strip"><span>{selectedStyle.side}</span><strong>{selectedStyle.name}</strong>{selectedStyle.code && <small>{selectedStyle.code}</small>}{selectedStyle.price && <small>{selectedStyle.price}</small>}</div>
         <div className="color-selection-layout">
           <div className="color-selection-main">
             <div className="product-grid color-grid">{selectedStyle.variants.map((variant) => <VariantCard
